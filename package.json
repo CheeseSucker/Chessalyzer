@@ -2,7 +2,6 @@
   "name": "chessalyzer",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -22,7 +21,7 @@
   "homepage": "https://github.com/CheeseSucker/Chessalyzer#readme",
   "dependencies": {
     "@chrisoakman/chessboardjs": "^1.0.0",
-    "chess.js": "^0.10.3",
+    "chess.js": "^0.12.0",
     "express": "^4.17.2",
     "lodash": "^4.17.21",
     "ndjson": "^2.0.0",
