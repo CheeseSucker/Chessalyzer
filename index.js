@@ -92,13 +92,6 @@ function parseScore(score) {
     throw new Error("Unknown score unit: " + score.unit);
 }
 
-function parseMove(move) {
-    return {
-      from: move.substr(0, 2),
-        to: move.substr(2, 2),
-    };
-}
-
 async function t(id) {
     const f = await fetch("https://lichess.org/api/stream/game/" + id);
     const observable = new Observable(subscriber => {
@@ -138,8 +131,10 @@ async function t(id) {
                     }
 
                     if (e.lm) {
-                        console.log("Last move: ", e.lm);
-                        if (!chess.move(parseMove(e.lm))) {
+                        console.log("Last move: " + e.lm);
+                        const parsedMove = parseMove(e.lm);
+                        if (!chess.move(parseMove)) {
+                            console.log("Move: ", parsedMove);
                             console.error("Invalid move!");
                             throw new Error("Invalid move");
                         }
